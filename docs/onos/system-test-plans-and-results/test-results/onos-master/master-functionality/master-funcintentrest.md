@@ -1,0 +1,946 @@
+# Master-FUNCintentRest
+
+FUNCintentRest at 23 Sep 2021 20:02:33![FUNCintentRest](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/FUNCintentRest_master_20-builds_graph.jpg)
+> commit b53d626fb03195129c0ec0802e1f953f85dcbef8 (HEAD, origin/master, origin/HEAD, master)  
+> Author: pierventre [pier@opennetworking.org]  
+> AuthorDate: Wed Sep 22 11:24:38 2021 +0200  
+> Commit: Pier Luigi Ventre [pier@opennetworking.org]  
+> CommitDate: Thu Sep 23 07:38:36 2021 +0000  
+>   
+> [SDFAB-612] Cluster not ready when using recent tost master images  
+> --  
+> (cherry picked from commit ec0e942320ef27932b4173172055151015261d7c)
+
+### Case 1: Pull onos branch and build onos on Teststation. - PASS
+
+For loading from params file, and pull and build the latest ONOS package
+
+* 1.1 Constructing test variables - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 1 node(s) ONOS cluster - PASS
+
+Set up ONOS with 1 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 10: Start Mininet topology with OF 1.0 switches - PASS
+
+Start mininet topology with OF 1.0 switches to test intents, exits out if topology did not start correctly
+
+* 10.1 Starting Mininet topology with OF 1.0 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.0 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Rules - PASS
+
+This test case tests Host intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Rules - PASS
+
+This test case will test point to point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Rules - FAIL
+
+This test case will test single point to multi point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 3 node(s) ONOS cluster - PASS
+
+Set up ONOS with 3 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 10: Start Mininet topology with OF 1.0 switches - PASS
+
+Start mininet topology with OF 1.0 switches to test intents, exits out if topology did not start correctly
+
+* 10.1 Starting Mininet topology with OF 1.0 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.0 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Rules - PASS
+
+This test case tests Host intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Rules - PASS
+
+This test case will test point to point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Rules - FAIL
+
+This test case will test single point to multi point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Rules
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 1 node(s) ONOS cluster - PASS
+
+Set up ONOS with 1 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 10: Start Mininet topology with OF 1.0 switches - PASS
+
+Start mininet topology with OF 1.0 switches to test intents, exits out if topology did not start correctly
+
+* 10.1 Starting Mininet topology with OF 1.0 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.0 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 17: Enable intent compilation using Flow Objectives - PASS
+
+* 17.1 Enabling Flow Objectives - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Objectives - PASS
+
+This test case tests Host intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Objectives - PASS
+
+This test case will test point to point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 1 NODE(S) - OF 1.0 - Using Flow Objectives - FAIL
+
+This test case will test single point to multi point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 3 node(s) ONOS cluster - PASS
+
+Set up ONOS with 3 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 10: Start Mininet topology with OF 1.0 switches - PASS
+
+Start mininet topology with OF 1.0 switches to test intents, exits out if topology did not start correctly
+
+* 10.1 Starting Mininet topology with OF 1.0 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.0 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 17: Enable intent compilation using Flow Objectives - PASS
+
+* 17.1 Enabling Flow Objectives - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Objectives - PASS
+
+This test case tests Host intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Objectives - PASS
+
+This test case will test point to point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 3 NODE(S) - OF 1.0 - Using Flow Objectives - FAIL
+
+This test case will test single point to multi point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.0 OVS running in Mininet and compile intents using Flow Objectives
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 1 node(s) ONOS cluster - PASS
+
+Set up ONOS with 1 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 11: Start Mininet topology with OF 1.3 switches - PASS
+
+Start mininet topology with OF 1.3 switches to test intents, exits out if topology did not start correctly
+
+* 11.1 Starting Mininet topology with OF 1.3 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.3 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Rules - PASS
+
+This test case tests Host intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Rules - PASS
+
+This test case will test point to point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Rules - FAIL
+
+This test case will test single point to multi point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 3 node(s) ONOS cluster - PASS
+
+Set up ONOS with 3 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 11: Start Mininet topology with OF 1.3 switches - PASS
+
+Start mininet topology with OF 1.3 switches to test intents, exits out if topology did not start correctly
+
+* 11.1 Starting Mininet topology with OF 1.3 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.3 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Rules - PASS
+
+This test case tests Host intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Rules - PASS
+
+This test case will test point to point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Rules - FAIL
+
+This test case will test single point to multi point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Rules
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 1 node(s) ONOS cluster - PASS
+
+Set up ONOS with 1 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 11: Start Mininet topology with OF 1.3 switches - PASS
+
+Start mininet topology with OF 1.3 switches to test intents, exits out if topology did not start correctly
+
+* 11.1 Starting Mininet topology with OF 1.3 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.3 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 17: Enable intent compilation using Flow Objectives - PASS
+
+* 17.1 Enabling Flow Objectives - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Objectives - PASS
+
+This test case tests Host intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Objectives - PASS
+
+This test case will test point to point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 1 NODE(S) - OF 1.3 - Using Flow Objectives - FAIL
+
+This test case will test single point to multi point intents using 1 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2: Starting up 3 node(s) ONOS cluster - PASS
+
+Set up ONOS with 3 node(s) ONOS cluster
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 11: Start Mininet topology with OF 1.3 switches - PASS
+
+Start mininet topology with OF 1.3 switches to test intents, exits out if topology did not start correctly
+
+* 11.1 Starting Mininet topology with OF 1.3 switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 12: Assign switches to controllers - PASS
+
+Assign OF 1.3 switches to ONOS nodes
+
+* 12.1 Assigning switches to controllers - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 13: Create scapy components - PASS
+
+* 13.1 Create scapy components - No Result ![(warning)](../../../../../assets/warning.svg)
+* 13.2 Start scapy components - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 15: Discover all hosts using scapy - PASS
+
+* 15.1 Send packets from each host to the first host and confirm onos discovery - PASS ![(tick)](../../../../../assets/check.svg)
+* 15.2 Populate hostsData - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 16: Balance mastership of switches - PASS
+
+* 16.1 Balancing mastership of switches - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 17: Enable intent compilation using Flow Objectives - PASS
+
+* 17.1 Enabling Flow Objectives - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 1000: Host Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Objectives - PASS
+
+This test case tests Host intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 1000.1 IPV4: Add and test host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.2 DUALSTACK1: Add host intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.3 DUALSTACK2: Add host intents between h1 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.4 1HOP: Add host intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.5 VLAN1: Add vlan host intents between h4 and h12 - PASS ![(tick)](../../../../../assets/check.svg)
+* 1000.6 Confirm that ONOS leadership is unchanged - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 2000: Point Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Objectives - PASS
+
+This test case will test point to point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 2000.1 NOOPTION: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.2 IPV4: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.3 IPV4\_2: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.4 SDNIP-ICMP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.5 SDNIP-TCP: Add point intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.6 DUALSTACK1: Add point intents between h3 and h11 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.7 VLAN: Add point intents between h5 and h21 - PASS ![(tick)](../../../../../assets/check.svg)
+* 2000.8 1HOP: Add point intents between h1 and h3 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 3000: Single to Multi Point Intents Test - 3 NODE(S) - OF 1.3 - Using Flow Objectives - FAIL
+
+This test case will test single point to multi point intents using 3 node(s) cluster;
+Different type of hosts will be tested in each step such as IPV4, Dual stack, VLAN etc;
+The test will use OF 1.3 OVS running in Mininet and compile intents using Flow Objectives
+
+* 3000.1 NOOPTION: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with no options set
+
+* 3000.2 IPV4: Install and test single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses
+
+* 3000.3 IPV4\_2: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and no MAC addresses
+
+* 3000.4 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for IPV4 single to multi point intent with IPV4 type and MAC addresses in the same VLAN
+
+* 3000.5 VLAN: Add single point to multi point intents - FAIL ![(error)](../../../../../assets/error.svg)
+
++ Assertion results for single to multi point intent with VLAN treatment
+
+### Case 5000: Test host mobility with host intents - PASS
+
+* 5000.1 Testing host mobility by moving h1 from s5 to s6 - PASS ![(tick)](../../../../../assets/check.svg)
+* 5000.2 IPV4: Add host intents between h1 and h9 - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 18: Stop Mininet and Scapy - PASS
+
+Stopping the current mininet topology to start up fresh
+
+* 18.1 Stopping and Removing Scapy Host Components - PASS ![(tick)](../../../../../assets/check.svg)
+* 18.2 Stopping Mininet - PASS ![(tick)](../../../../../assets/check.svg)
+
+### Case 19: Copy karaf logs - PASS
+
+Copying the karaf logs to preserve them throughreinstalling ONOS
+
+* 19.1 Copying karaf logs - PASS ![(tick)](../../../../../assets/check.svg)

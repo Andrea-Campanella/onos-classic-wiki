@@ -1,0 +1,446 @@
+# master-SR HA Scaling
+
+HAscaling at 25 Sep 2021 13:20:46![HAscaling](https://jenkins.onosproject.org/view/QA/job/postjob-Fabric4/lastSuccessfulBuild/artifact/HAscaling_master_20-builds_graph.jpg)
+> commit 7d13b59ecf0968dae20a3ccee7c59cad3f21f66d (HEAD -] master, origin/master, origin/HEAD)  
+> Author: Jian Li [pyguni@gmail.com]  
+> AuthorDate: Fri Sep 24 15:08:53 2021 +0900  
+> Commit: Jian Li [pyguni@gmail.com]  
+> CommitDate: Fri Sep 24 06:51:38 2021 +0000  
+>   
+> Fix: make protocol field optional in kubevirt load balancer  
+> --  
+> (cherry picked from commit 70d491cba5689d69708568f693b92432ebe52ba5)
+
+### Case 1: Constructing test variables and building ONOS package - PASS
+
+For loading from params file, and pull and build the latest ONOS package
+
+* 1.1 Constructing test variables - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.2 Apply cell to environment - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.3 Uninstalling Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.4 Uninstalling ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.5 Creating ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.6 Installing Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.7 Installing ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.8 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.9 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.10 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.11 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.12 Checking ONOS applications - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.13 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.14 Activate apps defined in the params file - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 1.15 Set ONOS configurations - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.16 Check app ids - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.17 Set logging levels - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 102: Starting Mininet Topology - FAIL
+
+* 102.1 Pushing Network config - PASS ![(tick)](../../../../../../assets/check.svg)
+* 102.2 Check Network config - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Net Cfg not correctly set
+
+* 102.3 Start Mininet topology - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 8: Compare ONOS Topology view to Mininet topology - PASS
+
+Compare topology objects between Mininet and ONOS
+
+* 8.1 Comparing ONOS topology to MN topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.2 Hosts view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.3 Hosts information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.4 Host attachment points to the network - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.5 Clusters view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.6 There is only one SCC - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.7 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.8 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.9 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 8: Compare ONOS Topology view to Mininet topology - PASS
+
+Compare topology objects between Mininet and ONOS
+
+* 8.1 Comparing ONOS topology to MN topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.2 Hosts view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.3 Hosts information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.4 Host attachment points to the network - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.5 Clusters view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.6 There is only one SCC - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.7 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.8 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.9 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 104: Check connectivity - FAIL
+
+* 104.1 Ping between all hosts - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Failed to ping between all hosts
+
+### Case 5: Setting up and gathering data for current state - PASS
+
+* 5.1 Check that each switch has a master - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.2 Get the Mastership of each switch from each controller - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 5.3 Read device roles from ONOS - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.4 Check for consistency in roles from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.5 Get the intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.6 Check for consistency in Intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.7 Get the flows from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.8 Check for consistency in Flows from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.9 Get the OF Table entries - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 5.10 Start continuous pings - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 5.11 Collecting topology information from ONOS - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 5.12 Host view is consistent across ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.13 Each host has an IP address - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.14 Cluster view is consistent across ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.15 Cluster view correct across ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.16 Comparing ONOS topology to MN - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.17 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.18 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 5.19 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 14: Start Leadership Election app - PASS
+
+* 14.1 Install leadership election app - PASS ![(tick)](../../../../../../assets/check.svg)
+* 14.2 Run for election on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 14.3 Active node was elected leader? - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 16: Install Primitives app - PASS
+
+* 16.1 Install Primitives app - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 17: Check for basic functionality with distributed primitives - PASS
+
+Test the methods of the distributed primitives (counters and sets) throught the cli
+
+* 17.1 Increment then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.2 Get then Increment a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.3 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.4 Add -8 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.5 Add 5 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.6 Get then add 5 to a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.7 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.8 Distributed Set get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.9 Distributed Set size - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.10 Distributed Set add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.11 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.12 Distributed Set contains() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.13 Distributed Set containsAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.14 Distributed Set remove() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.15 Distributed Set removeAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.16 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.17 Distributed Set clear() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.18 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.19 Distributed Set retain() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.20 Partitioned Transactional maps put - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.21 Partitioned Transactional maps get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.22 Get the value of a new value - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.23 Atomic Value set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.24 Get the value after set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.25 Atomic Value compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.26 Get the value after compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.27 Atomic Value getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.28 Get the value after getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.29 Atomic Value destory() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.30 Get the value after destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.31 Work Queue add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.32 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.33 Work Queue addMultiple() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.34 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.35 Work Queue takeAndComplete() 1 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.36 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.37 Work Queue takeAndComplete() 2 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.38 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.39 Work Queue destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.40 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 6: Scale the number of nodes in the ONOS cluster - PASS
+
+* 6.1 Checking ONOS Logs for errors - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.2 Scaling from 1 to 3 nodes - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.3 Start new nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.4 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.5 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.6 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 8: Compare ONOS Topology view to Mininet topology - PASS
+
+Compare topology objects between Mininet and ONOS
+
+* 8.1 Comparing ONOS topology to MN topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.2 Hosts view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.3 Hosts information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.4 Host attachment points to the network - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.5 Clusters view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.6 There is only one SCC - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.7 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.8 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.9 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 7: Running ONOS Constant State Tests - PASS
+
+* 7.1 Check that each switch has a master - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.2 Read device roles from ONOS - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.3 Check for consistency in roles from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.4 Get the intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.5 Check for consistency in Intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.6 Compare current intents with intents before the scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.7 Get the OF Table entries and compare to before component scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.8 Leadership Election is still functional - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 104: Check connectivity - FAIL
+
+* 104.1 Ping between all hosts - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Failed to ping between all hosts
+
+### Case 15: Check that Leadership Election is still functional - PASS
+
+* 15.1 Run for election on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.2 Check that each node shows the same leader and candidates - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.3 Find current leader and withdraw - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.4 Check that a new node was elected leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.5 Check that that new leader was the candidate of old leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.6 Run for election on old leader( just so everyone is in the hat ) - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.7 Check that oldLeader is a candidate, and leader if only 1 node - No Result ![(warning)](../../../../../../assets/warning.svg)
+
+### Case 17: Check for basic functionality with distributed primitives - PASS
+
+Test the methods of the distributed primitives (counters and sets) throught the cli
+
+* 17.1 Increment then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.2 Get then Increment a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.3 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.4 Add -8 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.5 Add 5 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.6 Get then add 5 to a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.7 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.8 Distributed Set get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.9 Distributed Set size - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.10 Distributed Set add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.11 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.12 Distributed Set contains() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.13 Distributed Set containsAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.14 Distributed Set remove() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.15 Distributed Set removeAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.16 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.17 Distributed Set clear() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.18 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.19 Distributed Set retain() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.20 Partitioned Transactional maps put - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.21 Partitioned Transactional maps get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.22 Get the value of a new value - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.23 Atomic Value set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.24 Get the value after set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.25 Atomic Value compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.26 Get the value after compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.27 Atomic Value getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.28 Get the value after getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.29 Atomic Value destory() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.30 Get the value after destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.31 Work Queue add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.32 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.33 Work Queue addMultiple() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.34 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.35 Work Queue takeAndComplete() 1 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.36 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.37 Work Queue takeAndComplete() 2 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.38 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.39 Work Queue destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.40 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 6: Scale the number of nodes in the ONOS cluster - PASS
+
+* 6.1 Checking ONOS Logs for errors - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.2 Scaling from 3 to 3 nodes - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.3 Start new nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.4 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.5 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.6 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 8: Compare ONOS Topology view to Mininet topology - PASS
+
+Compare topology objects between Mininet and ONOS
+
+* 8.1 Comparing ONOS topology to MN topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.2 Hosts view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.3 Hosts information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.4 Host attachment points to the network - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.5 Clusters view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.6 There is only one SCC - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.7 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.8 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.9 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 7: Running ONOS Constant State Tests - PASS
+
+* 7.1 Check that each switch has a master - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.2 Read device roles from ONOS - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.3 Check for consistency in roles from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.4 Get the intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.5 Check for consistency in Intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.6 Compare current intents with intents before the scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.7 Get the OF Table entries and compare to before component scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.8 Leadership Election is still functional - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 104: Check connectivity - FAIL
+
+* 104.1 Ping between all hosts - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Failed to ping between all hosts
+
+### Case 15: Check that Leadership Election is still functional - PASS
+
+* 15.1 Run for election on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.2 Check that each node shows the same leader and candidates - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.3 Find current leader and withdraw - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.4 Check that a new node was elected leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.5 Check that that new leader was the candidate of old leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.6 Run for election on old leader( just so everyone is in the hat ) - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.7 Check that oldLeader is a candidate, and leader if only 1 node - No Result ![(warning)](../../../../../../assets/warning.svg)
+
+### Case 17: Check for basic functionality with distributed primitives - PASS
+
+Test the methods of the distributed primitives (counters and sets) throught the cli
+
+* 17.1 Increment then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.2 Get then Increment a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.3 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.4 Add -8 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.5 Add 5 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.6 Get then add 5 to a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.7 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.8 Distributed Set get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.9 Distributed Set size - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.10 Distributed Set add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.11 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.12 Distributed Set contains() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.13 Distributed Set containsAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.14 Distributed Set remove() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.15 Distributed Set removeAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.16 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.17 Distributed Set clear() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.18 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.19 Distributed Set retain() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.20 Partitioned Transactional maps put - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.21 Partitioned Transactional maps get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.22 Get the value of a new value - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.23 Atomic Value set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.24 Get the value after set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.25 Atomic Value compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.26 Get the value after compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.27 Atomic Value getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.28 Get the value after getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.29 Atomic Value destory() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.30 Get the value after destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.31 Work Queue add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.32 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.33 Work Queue addMultiple() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.34 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.35 Work Queue takeAndComplete() 1 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.36 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.37 Work Queue takeAndComplete() 2 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.38 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.39 Work Queue destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.40 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 6: Scale the number of nodes in the ONOS cluster - PASS
+
+* 6.1 Checking ONOS Logs for errors - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.2 Scaling from 3 to 3 nodes - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 6.3 Start new nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.4 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.5 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 6.6 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 8: Compare ONOS Topology view to Mininet topology - PASS
+
+Compare topology objects between Mininet and ONOS
+
+* 8.1 Comparing ONOS topology to MN topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.2 Hosts view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.3 Hosts information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.4 Host attachment points to the network - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.5 Clusters view is consistent across all ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.6 There is only one SCC - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.7 Device information is correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.8 Links are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.9 Hosts are correct - PASS ![(tick)](../../../../../../assets/check.svg)
+* 8.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 7: Running ONOS Constant State Tests - PASS
+
+* 7.1 Check that each switch has a master - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.2 Read device roles from ONOS - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.3 Check for consistency in roles from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.4 Get the intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.5 Check for consistency in Intents from each controller - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.6 Compare current intents with intents before the scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.7 Get the OF Table entries and compare to before component scaling - PASS ![(tick)](../../../../../../assets/check.svg)
+* 7.8 Leadership Election is still functional - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 104: Check connectivity - FAIL
+
+* 104.1 Ping between all hosts - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Failed to ping between all hosts
+
+### Case 15: Check that Leadership Election is still functional - PASS
+
+* 15.1 Run for election on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.2 Check that each node shows the same leader and candidates - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.3 Find current leader and withdraw - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.4 Check that a new node was elected leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.5 Check that that new leader was the candidate of old leader - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.6 Run for election on old leader( just so everyone is in the hat ) - PASS ![(tick)](../../../../../../assets/check.svg)
+* 15.7 Check that oldLeader is a candidate, and leader if only 1 node - No Result ![(warning)](../../../../../../assets/warning.svg)
+
+### Case 17: Check for basic functionality with distributed primitives - PASS
+
+Test the methods of the distributed primitives (counters and sets) throught the cli
+
+* 17.1 Increment then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.2 Get then Increment a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.3 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.4 Add -8 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.5 Add 5 to then get a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.6 Get then add 5 to a default counter on each node - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.7 Counters we added have the correct values - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.8 Distributed Set get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.9 Distributed Set size - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.10 Distributed Set add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.11 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.12 Distributed Set contains() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.13 Distributed Set containsAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.14 Distributed Set remove() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.15 Distributed Set removeAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.16 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.17 Distributed Set clear() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.18 Distributed Set addAll() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.19 Distributed Set retain() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.20 Partitioned Transactional maps put - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.21 Partitioned Transactional maps get - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.22 Get the value of a new value - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.23 Atomic Value set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.24 Get the value after set() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.25 Atomic Value compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.26 Get the value after compareAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.27 Atomic Value getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.28 Get the value after getAndSet() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.29 Atomic Value destory() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.30 Get the value after destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.31 Work Queue add() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.32 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.33 Work Queue addMultiple() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.34 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.35 Work Queue takeAndComplete() 1 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.36 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.37 Work Queue takeAndComplete() 2 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.38 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.39 Work Queue destroy() - PASS ![(tick)](../../../../../../assets/check.svg)
+* 17.40 Check the work queue stats - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 6: Scale the number of nodes in the ONOS cluster - FAIL

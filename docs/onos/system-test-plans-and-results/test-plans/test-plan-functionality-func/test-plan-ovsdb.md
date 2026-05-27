@@ -1,0 +1,11 @@
+# Test Plan - OVSDB
+
+**Test Cases**
+
+| ID | Title | Test ENV | Preparation | TestSteps | ExpectedResult |
+| --- | --- | --- | --- | --- | --- |
+| ONOS\_ONOSFW\_OVSDB\_1 | OVSDB connection setup and teardown | Single ONOS and one OVS | 1.ONOS running well.  2.Install feature ovsdb-web-provider ovsdb onos-core-netvirt. | 1.Confiure ovs-vsctl set-manager tcp:{ip}:6640 on OVS.Check the OVSDB connection on ONOS.  2.Confiure ovs-vsctl del-manager tcp:{ip}:6640 on OVS.Check the OVSDB connection on ONOS. | 1.OVSDB connection is up.  2.OVSDB connection is down. |
+| ONOS\_ONOSFW\_OVSDB\_2 | Default configuration of bridge and vxlan install | Single ONOS and two OVS | 1.ONOS running well.  2.Install feature ovsdb-web-provider ovsdb onos-core-netvirt. | 1.Confiure ovs-vsctl set-manager tcp:{ip}:6640 on OVS1.Check the OVSDB connection on ONOS.Check the bridge and vxlan configuration on OVS1.  2.Confiure ovs-vsctl set-manager tcp:{ip}:6640 on OVS1.Check the OVSDB connection on ONOS.Check the bridge and vxlan configuration on OVS1 and OVS2  3.Check the devices on ONOS. | 1.OVS1 has an br\_int.  2.OVS1 and OVS2 has br\_int and vxlan tunnel.  3.ONOS devices add two sw. |
+| ONOS\_ONOSFW\_OVSDB\_3 | OPENFLOW connection setup automatic | Single ONOS and one OVS | 1.ONOS running well.  2.Install feature ovsdb-web-provider ovsdb onos-core-netvirt. | 1.Confiure ovs-vsctl set-manager tcp:{ip}:6640 on OVS.Check the Openflow connection on ONOS. | 1.OPENFLOW connection is up. |
+| ONOS\_ONOSFW\_OVSDB\_4 | Default flow tables install | Single ONOS and two OVS | 1.ONOS running well.  2.Install feature ovsdb-web-provider ovsdb onos-core-netvirt. | 1.Configure ovs-vsctl set-manager tcp:{ip}:6640 on OVS1 and OVS2.Check the default flow tables on OVS and ONOS. | 1.default flows is correct. |
+| ONOS\_ONOSFW\_OVSDB\_5 | Simulation VM go online check flow tables install | Single ONOS and two OVS | 1.ONOS running well.  2.Install feature ovsdb-web-provider ovsdb onos-core-netvirt. | 1.Configure ovs-vsctl set-manager tcp:{ip}:6640 on OVS1 and OVS2.Check the flow tables on OVS and ONOS.  2.Create a port on OVS1.Check the flow tables on OVS and ONOS.  3.Create a port on OVS2.Check the flow tables on OVS and ONOS. | 1.OVS and ONOS have default flows.  2.OVS and ONOS add correct flows.  3.OVS and ONOS add correct flows. |

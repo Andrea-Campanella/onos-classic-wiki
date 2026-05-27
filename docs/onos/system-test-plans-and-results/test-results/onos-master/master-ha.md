@@ -1,0 +1,9 @@
+# Master-HA
+
+# 
+
+# Test Results - High Availability (HA)
+
+For test details, check out the [test plans for HA Test Cases](../../test-plans/test-plan-ha-ha.md).
+
+![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAsanity_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAsingleInstanceRestart_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAclusterRestart_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAkillNodes_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAstopNodes_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAfullNetPartition_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAscaling_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAswapNodes_master_20-builds_graph.jpg)![](https://jenkins.onosproject.org/view/QA/job/postjob-VM/lastSuccessfulBuild/artifact/HAbackupRecover_master_20-builds_graph.jpg)

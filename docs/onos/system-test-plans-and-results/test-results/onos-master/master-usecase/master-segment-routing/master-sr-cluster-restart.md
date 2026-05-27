@@ -1,0 +1,183 @@
+# master-SR Cluster Restart
+
+SRClusterRestart at 25 Sep 2021 11:34:22![SRClusterRestart](https://jenkins.onosproject.org/view/QA/job/postjob-Fabric4/lastSuccessfulBuild/artifact/SRClusterRestart_master_20-builds_graph.jpg)
+> commit 7d13b59ecf0968dae20a3ccee7c59cad3f21f66d (HEAD -] master, origin/master, origin/HEAD)  
+> Author: Jian Li [pyguni@gmail.com]  
+> AuthorDate: Fri Sep 24 15:08:53 2021 +0900  
+> Commit: Jian Li [pyguni@gmail.com]  
+> CommitDate: Fri Sep 24 06:51:38 2021 +0000  
+>   
+> Fix: make protocol field optional in kubevirt load balancer  
+> --  
+> (cherry picked from commit 70d491cba5689d69708568f693b92432ebe52ba5)
+
+### Case 1: Cluster Restart test with 2x2 leaf-spine topology - FAIL
+
+* 1.1 Constructing test variables - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.2 Apply cell to environment - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.3 Uninstalling Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.4 Uninstalling ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.5 Creating ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.6 Installing Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.7 Installing ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.8 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.9 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.10 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.11 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.12 Checking ONOS applications - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.13 Set logging levels - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.14 Set ONOS configurations - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.15 Starting Mininet Topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.16 Check whether the flow count is >= 116 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Flow count looks wrong; found 72, expecting at least 116
+
+* 1.17 Check whether all flow status are ADDED - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.18 Verify full connectivity for [u'h1', u'h2', u'h3', u'h4'] with tag CASE1 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.19 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE1 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.20 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE1 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.21 Killing ONOS instances with index(es): [0, 1, 2] - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.22 Verify full connectivity for [u'h1', u'h2', u'h3', u'h4'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.23 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.24 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.25 Recovering ONOS instances with index(es): [0, 1, 2] - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.26 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.27 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.28 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.29 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.30 Check number of topology elements - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.31 Check whether the flow count is >= 116 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ Flow count looks wrong; found 72, expecting at least 116
+
+* 1.32 Check whether all flow status are ADDED - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.33 Verify full connectivity for [u'h1', u'h2', u'h3', u'h4'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.34 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.35 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE1\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 1.36 Stopping Mininet - PASS ![(tick)](../../../../../../assets/check.svg)
+* 1.37 Copying karaf logs - PASS ![(tick)](../../../../../../assets/check.svg)
+
+### Case 2: Cluster Restart test with 4x4 dual-homed leaf-spine topology - FAIL
+
+* 2.1 Apply cell to environment - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.2 Uninstalling Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.4 Creating ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.5 Installing Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.6 Installing ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.8 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.11 Checking ONOS applications - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.12 Set logging levels - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.13 Set ONOS configurations - No Result ![(warning)](../../../../../../assets/warning.svg)
+* 2.14 Stopping Mininet - PASS ![(tick)](../../../../../../assets/check.svg)
+* 2.15 Copying karaf logs - PASS ![(tick)](../../../../../../assets/check.svg)
+
++ Skipping the rest of this case. 'mininetArgs'
+
+### Case 3: Cluster Restart test with single ToR - FAIL
+
+* 3.1 Apply cell to environment - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.2 Uninstalling Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.3 Uninstalling ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.4 Creating ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.5 Installing Atomix - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.6 Installing ONOS package - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.7 Set up ONOS secure SSH - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.8 Checking ONOS service - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.9 Starting ONOS CLI sessions - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.10 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.11 Checking ONOS applications - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.12 Set logging levels - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.13 Set ONOS configurations - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.14 Starting Mininet Topology - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.15 Check whether the flow count is >= 15 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.16 Check whether all flow status are ADDED - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.17 Verify full connectivity for [u'h1', u'h2'] with tag CASE3 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.18 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE3 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.19 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE3 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.20 Verify full connectivity for [u'olt1', u'vsg1'] with tag CASE3 - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.21 Killing ONOS instances with index(es): [0, 1, 2] - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.22 Verify full connectivity for [u'h1', u'h2'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.23 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.24 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.25 Verify full connectivity for [u'olt1', u'vsg1'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.26 Recovering ONOS instances with index(es): [0, 1, 2] - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.27 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.28 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.29 Checking if ONOS CLI is ready - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.30 Checking ONOS nodes - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.31 Check number of topology elements - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.32 Check whether the flow count is >= 15 - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.33 Check whether all flow status are ADDED - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.34 Verify full connectivity for [u'h1', u'h2'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.35 Verify full connectivity for [u'olt10', u'vsg10'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.36 Verify full connectivity for [u'olt5', u'vsg5'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.37 Verify full connectivity for [u'olt1', u'vsg1'] with tag CASE3\_Failure - FAIL ![(error)](../../../../../../assets/error.svg)
+
++ IP connectivity failed
+
+* 3.38 Stopping Mininet - PASS ![(tick)](../../../../../../assets/check.svg)
+* 3.39 Copying karaf logs - PASS ![(tick)](../../../../../../assets/check.svg)

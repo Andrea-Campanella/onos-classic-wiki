@@ -1,0 +1,3 @@
+# Diagnostics Collector (onos-diagnostics)
+
+See [ONOS Remote Admin Tools](../guides/administrator-guide/onos-remote-admin-tools.md) instead...

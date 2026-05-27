@@ -1,0 +1,19 @@
+# Master-CHO
+
+# Test Results - CHO
+
+ONOS Apps:
+
+* drivers, openflow, segmentrouting, fpm, dhcprelay, netcfghostprovider, routeradvertisement, t3, hostprobingprovider
+
+Topology:
+
+* H-AGG
+
+For more details, check out the [test plans for CHO](../../test-plans/test-plan-cho-test-cho.md).
+
+![](https://jenkins.onosproject.org/view/QA/job/postjob-Fabric5/lastSuccessfulBuild/artifact/CHO_Events_master_168-maxData_graph.jpg)
+
+![](https://jenkins.onosproject.org/view/QA/job/postjob-Fabric5/lastSuccessfulBuild/artifact/CHO_Failure-Check_master_168-maxData_graph.jpg)
+
+![](https://jenkins.onosproject.org/view/QA/job/postjob-Fabric5/lastSuccessfulBuild/artifact/CHO_Errors_master_168-maxData_graph.jpg)
