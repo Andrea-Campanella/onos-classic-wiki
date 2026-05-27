@@ -1,0 +1,3 @@
+# OpenstackRouting
+
+![](../../../../../assets/openstackroutingarchitecture.png)
